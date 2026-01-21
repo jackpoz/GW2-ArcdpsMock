@@ -1,5 +1,6 @@
 #include "LibrariesManager.h"
 #include "arcdps_structs.h"
+#include <cstdlib>
 
 LibrariesManager::LibrariesManager()
 {
