@@ -86,7 +86,7 @@
             "displayName": "Linux x64 Release",
             "inherits": "linux-x64-debug",
             "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         }
     ]
