@@ -1,12 +1,6 @@
 #pragma once
-
-#ifdef _WIN32
-#include <Windows.h>
-typedef HMODULE LibraryHandle;
-#else
-#include <dlfcn.h>
-typedef void* LibraryHandle;
-#endif
+#include "SharedTypes.h"
+#include "Library.h"
 
 #include <vector>
 
@@ -19,5 +13,8 @@ public:
     void LoadLibrary(const char* path);
     void UnloadLibraries();
 private:
-    std::vector<LibraryHandle> libraries;
+    template <typename T>
+    T GetFunctionAddress(LibraryHandle handle, const char* functionName);
+
+    std::vector<Library> libraries;
 };

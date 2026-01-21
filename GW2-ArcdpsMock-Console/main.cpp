@@ -13,7 +13,7 @@ int main(int argc, char* argv[])
 
     const char* libraryPath = argv[1];
     
-    // 1. Load library from the specified input path, multiplatform (Windows and Linux)
+    // 1. Load the library from the specified input path, multiplatform (Windows and Linux)
     auto librariesManager = LibrariesManager();
     librariesManager.LoadLibrary(libraryPath);
 
@@ -23,6 +23,7 @@ int main(int argc, char* argv[])
     // 3.a. Ask for input: exit, repeat the previous log (if any was ran) or load and run the specified combat log
     // 3.b. Execute the requested action
 
+    // 4. Unload the libraries before exiting
     librariesManager.UnloadLibraries();
 
     return 0;
