@@ -12,31 +12,25 @@ LibrariesManager::~LibrariesManager()
 void LibrariesManager::LoadLibrary(const char* path)
 {
 #ifdef _WIN32
-    HMODULE handle = ::LoadLibraryA(path);
-    if (handle != NULL)
-    {
-        libraries.push_back(handle);
-    }
+    LibraryHandle handle = ::LoadLibraryA(path);
 #else
-    void* handle = dlopen(path, RTLD_LAZY);
+    LibraryHandle handle = dlopen(path, RTLD_LAZY);
+#endif
+
     if (handle != nullptr)
     {
         libraries.push_back(handle);
     }
-#endif
 }
 
 void LibrariesManager::UnloadLibraries()
 {
+    for (LibraryHandle handle : libraries)
+    {
 #ifdef _WIN32
-    for (HMODULE handle : libraries)
-    {
         ::FreeLibrary(handle);
-    }
 #else
-    for (void* handle : libraries)
-    {
         dlclose(handle);
-    }
 #endif
+    }
 }

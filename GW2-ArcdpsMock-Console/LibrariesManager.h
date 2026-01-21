@@ -2,8 +2,10 @@
 
 #ifdef _WIN32
 #include <Windows.h>
+typedef HMODULE LibraryHandle;
 #else
 #include <dlfcn.h>
+typedef void* LibraryHandle;
 #endif
 
 #include <vector>
@@ -17,9 +19,5 @@ public:
     void LoadLibrary(const char* path);
     void UnloadLibraries();
 private:
-#ifdef _WIN32
-    std::vector<HMODULE> libraries;
-#else
-    std::vector<void*> libraries;
-#endif
+    std::vector<LibraryHandle> libraries;
 };
