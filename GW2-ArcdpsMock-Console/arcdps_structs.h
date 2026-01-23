@@ -3,7 +3,8 @@
 #include "SharedTypes.h"
 #include <cstdint>
 
-typedef struct cbtevent {
+typedef struct cbtevent
+{
 	uint64_t time;
 	uintptr_t src_agent;
 	uintptr_t dst_agent;
@@ -33,7 +34,8 @@ typedef struct cbtevent {
 	uint8_t pad64;
 } cbtevent;
 
-typedef struct ag {
+typedef struct ag
+{
 	const char* name;
 	uintptr_t id;
 	uint32_t prof;
@@ -48,19 +50,20 @@ typedef void (*ImguiCallbackSignature)(uint32_t not_charsel_or_loading, uint32_t
 typedef void (*OptionsEndCallbackSignature)();
 typedef void (*OptionsWindowsCallbackSignature)(const char* windowname);
 
-typedef struct arcdps_exports {
-	uintptr_t size;                                  /* size of exports table */
-	uint32_t sig;                                    /* pick a number between 0 and uint32_t max that isn't used by other modules */
-	uint32_t imguivers;                              /* set this to IMGUI_VERSION_NUM. if you don't use imgui, 18000 (as of 2021-02-02) */
-	const char* out_name;                            /* name string */
-	const char* out_build;                           /* build string */
-	WindowCallbackSignature wnd_nofilter;            /* wndproc callback, fn(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam) */
-	CombatCallbackSignature combat;                  /* combat event callback, fn(cbtevent* ev, ag* src, ag* dst, char* skillname, uint64_t id, uint64_t revision) */
-	ImguiCallbackSignature imgui;                    /* id3dd9::present callback, before imgui::render, fn(uint32_t not_charsel_or_loading) */
-	OptionsEndCallbackSignature options_end;         /* id3dd9::present callback, appending to the end of options window in arcdps, fn() */
-	CombatCallbackSignature combat_local;            /* combat event callback like area but from chat log, fn(cbtevent* ev, ag* src, ag* dst, char* skillname, uint64_t id, uint64_t revision) */
-	WindowCallbackSignature wnd_filter;              /* wndproc callback like above, input filered using modifiers */
-	OptionsWindowsCallbackSignature options_windows; /* called once per 'window' option checkbox, with null at the end, non-zero return disables drawing that option, fn(char* windowname) */
+typedef struct arcdps_exports
+{
+	uintptr_t size;
+	uint32_t sig;
+	uint32_t imguivers;
+	const char* out_name;
+	const char* out_build;
+	WindowCallbackSignature wnd_nofilter;
+	CombatCallbackSignature combat;
+	ImguiCallbackSignature imgui;
+	OptionsEndCallbackSignature options_end;
+	CombatCallbackSignature combat_local;
+	WindowCallbackSignature wnd_filter;
+	OptionsWindowsCallbackSignature options_windows;
 } arcdps_exports;
 
 typedef arcdps_exports* (*ModInitSignature)();
