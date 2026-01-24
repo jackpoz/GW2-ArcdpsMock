@@ -40,3 +40,4 @@ endif()
 # Include sub-projects.
 add_subdirectory ("GW2-ArcdpsMock-Common")
 add_subdirectory ("GW2-ArcdpsMock-Console")
+add_subdirectory ("GW2-ArcdpsMock-DemoPlugin")
