@@ -3,7 +3,9 @@
 #
 
 # Add source to this project's executable.
-add_executable (GW2-ArcdpsMock-Console "main.cpp"  "LibrariesManager.cpp" "arcdps_structs.h" "SharedTypes.h" "MockedTypes.h" "Library.h" "MockedTypes.cpp" "ArcdpsExports.cpp")
+add_executable (GW2-ArcdpsMock-Console "main.cpp"  "LibrariesManager.cpp" "Library.h" "ArcdpsExports.cpp")
+
+target_link_libraries(GW2-ArcdpsMock-Console PRIVATE GW2-ArcdpsMock-Common)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET GW2-ArcdpsMock-Console PROPERTY CXX_STANDARD 20)

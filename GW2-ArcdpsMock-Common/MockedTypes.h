@@ -8,6 +8,7 @@ typedef intptr_t LPARAM;
 typedef uintptr_t WPARAM;
 #endif
 
+#define IMGUI_VERSION_NUM 18000
 struct ImGuiContext
 {
     char Reserved[16256];
