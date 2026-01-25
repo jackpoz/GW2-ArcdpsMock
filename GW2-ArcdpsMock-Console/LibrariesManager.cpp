@@ -27,7 +27,8 @@ void LibrariesManager::LoadLibrary(const char* path)
 
     if (handle != nullptr)
     {
-        Library library;
+        Library library{};
+        library.Handle = handle;
         library.GetInit = GetFunctionAddress<GetInitAddrSignature>(handle, "get_init_addr");
         library.GetRelease = GetFunctionAddress<GetReleaseAddrSignature>(handle, "get_release_addr");
 
