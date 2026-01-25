@@ -1,4 +1,5 @@
 #include "arcdps_structs.h"
+#include "Dependencies.h"
 #include "SharedTypes.h"
 #include <cstdint>
 #include <cstring>
@@ -31,6 +32,7 @@ EXPORT void* get_release_addr()
 arcdps_exports* mod_init()
 {
     std::cout << "GW2-ArcdpsMock-DemoPlugin: mod_init called" << std::endl;
+	TriggereDependenciesLoad();
 
 	memset(&arc_exports, 0, sizeof(arcdps_exports));
 	arc_exports.sig = 0x1B250F21; // CRC32 of "GW2-ArcdpsMock-DemoPlugin"
