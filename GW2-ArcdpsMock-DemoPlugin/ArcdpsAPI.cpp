@@ -1,6 +1,7 @@
 #include "arcdps_structs.h"
 #include "SharedTypes.h"
 #include <cstdint>
+#include <cstring>
 #include <iostream>
 
 arcdps_exports arc_exports;
@@ -8,7 +9,7 @@ arcdps_exports arc_exports;
 EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion);
 EXPORT void* get_release_addr();
 arcdps_exports* mod_init();
-uintptr_t mod_release();
+void mod_release();
 void mod_options();
 void mod_imgui(uint32_t not_charsel_or_loading, uint32_t hide_if_combat_or_ooc);
 void mod_combat(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision);
@@ -19,12 +20,12 @@ EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dp
 	ImGui::SetCurrentContext((ImGuiContext*)imguictx);
 	ImGui::SetAllocatorFunctions((void* (*)(size_t, void*))mallocfn, (void (*)(void*, void*))freefn);
 	*/
-	return mod_init;
+	return reinterpret_cast<void*>(mod_init);
 }
 
 EXPORT void* get_release_addr()
 {
-	return mod_release;
+	return reinterpret_cast<void*>(mod_release);
 }
 
 arcdps_exports* mod_init()
@@ -45,10 +46,9 @@ arcdps_exports* mod_init()
 	return &arc_exports;
 }
 
-uintptr_t mod_release()
+void mod_release()
 {
 	std::cout << "GW2-ArcdpsMock-DemoPlugin: mod_release called" << std::endl;
-	return 0;
 }
 
 void mod_options()
