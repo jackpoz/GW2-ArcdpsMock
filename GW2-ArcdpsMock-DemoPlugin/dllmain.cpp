@@ -1,3 +1,4 @@
+#ifdef _WIN32
 #include <windows.h>
 
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
@@ -15,3 +16,16 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
     }
     return TRUE;
 }
+#else
+__attribute__((constructor))
+static void init()
+{
+    // Equivalent to DLL_PROCESS_ATTACH
+}
+
+__attribute__((destructor))
+static void deinit()
+{
+    // Equivalent to DLL_PROCESS_DETACH
+}
+#endif
