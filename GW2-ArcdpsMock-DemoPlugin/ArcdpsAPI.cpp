@@ -1,12 +1,11 @@
 #include "arcdps_structs.h"
 #include "SharedTypes.h"
-#include <windows.h>
 #include <cstdint>
 #include <iostream>
 
 arcdps_exports arc_exports;
 
-EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, HANDLE arcdll, void* mallocfn, void* freefn, uint32_t d3dversion);
+EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion);
 EXPORT void* get_release_addr();
 arcdps_exports* mod_init();
 uintptr_t mod_release();
@@ -14,7 +13,7 @@ void mod_options();
 void mod_imgui(uint32_t not_charsel_or_loading, uint32_t hide_if_combat_or_ooc);
 void mod_combat(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision);
 
-EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, HANDLE arcdll, void* mallocfn, void* freefn, uint32_t d3dversion)
+EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion)
 {
 	/*
 	ImGui::SetCurrentContext((ImGuiContext*)imguictx);
