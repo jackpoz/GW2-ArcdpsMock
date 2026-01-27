@@ -7,8 +7,8 @@
     "registries": [
         {
             "kind": "git",
-            "repository": "https://github.com/Zinn-o-Matics/vcpkg-registry",
-            "baseline": "7448b5e8664a18302146c6e29e0ff0cafe37664e",
+            "repository": "https://github.com/jackpoz/Zinn-o-Matics-vcpkg-registry",
+            "baseline": "16df092ac1ead133d692cbdb0025682cfa9562bb",
             "packages": [
                 "arcdps-unofficial-extras"
             ]
