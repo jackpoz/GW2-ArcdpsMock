@@ -8,13 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      CC: clang
+      CXX: clang++
+
     steps:
     - uses: actions/checkout@v4
 
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build
+        sudo apt-get install -y ninja-build clang
 
     - name: Setup vcpkg
       run: |
