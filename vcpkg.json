@@ -3,8 +3,6 @@
   "name": "gw2-arcdps-mock",
   "version": "1.0.0",
   "dependencies": [
-    "magic-enum",
-    "crossplatformmocks",
     "arcdps-unofficial-extras"
   ]
 }
