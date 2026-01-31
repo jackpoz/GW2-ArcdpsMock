@@ -1,17 +1,19 @@
 {
-    "default-registry": {
-        "kind": "git",
-        "repository": "https://github.com/Microsoft/vcpkg.git",
-        "baseline": "f14401ca0f2754347c3864da7488a9b955b4e47a"
-    },
-    "registries": [
-        {
-            "kind": "git",
-            "repository": "https://github.com/jackpoz/Zinn-o-Matics-vcpkg-registry",
-            "baseline": "16df092ac1ead133d692cbdb0025682cfa9562bb",
-            "packages": [
-                "arcdps-unofficial-extras"
-            ]
-        }
-    ]
+  "default-registry": {
+    "kind": "git",
+    "repository": "https://github.com/Microsoft/vcpkg.git",
+    "baseline": "f14401ca0f2754347c3864da7488a9b955b4e47a"
+  },
+  "registries": [
+    {
+      "kind": "git",
+      "repository": "https://github.com/jackpoz/Zinn-o-Matics-vcpkg-registry",
+      "reference": "fork",
+      "baseline": "54a32761323cf475568a2243cc0c7df25cca5550",
+      "packages": [
+        "arcdps-unofficial-extras",
+        "crossplatformmocks"
+      ]
+    }
+  ]
 }

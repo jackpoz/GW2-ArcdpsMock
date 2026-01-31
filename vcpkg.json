@@ -1,9 +1,10 @@
 {
-    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
-    "name": "gw2-arcdps-mock",
-    "version": "1.0.0",
-    "dependencies": [
-        "magic-enum",
-        "arcdps-unofficial-extras"
-    ]
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "gw2-arcdps-mock",
+  "version": "1.0.0",
+  "dependencies": [
+    "magic-enum",
+    "crossplatformmocks",
+    "arcdps-unofficial-extras"
+  ]
 }
