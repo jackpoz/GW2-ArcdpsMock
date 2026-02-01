@@ -7,7 +7,7 @@ add_library(GW2-ArcdpsMock-Common STATIC
 
 # Set C++ standard
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET GW2-ArcdpsMock-Common PROPERTY CXX_STANDARD 20)
+  set_property(TARGET GW2-ArcdpsMock-Common PROPERTY CXX_STANDARD 23)
 endif()
 
 # Add include directory for public headers
