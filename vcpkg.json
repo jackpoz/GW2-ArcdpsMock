@@ -3,6 +3,10 @@
   "name": "gw2-arcdps-mock",
   "version": "1.0.0",
   "dependencies": [
-    "arcdps-extension"
+    {
+      "name": "arcdps-extension",
+      "default-features": false,
+      "features": [ "unofficial-extras" ]
+    }
   ]
 }
