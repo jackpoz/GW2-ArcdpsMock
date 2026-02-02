@@ -6,7 +6,7 @@
     {
       "name": "arcdps-extension",
       "default-features": false,
-      "features": [ "unofficial-extras" ]
+      "features": [ "curl", "unofficial-extras" ]
     }
   ]
 }
