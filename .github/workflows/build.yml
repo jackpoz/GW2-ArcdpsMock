@@ -9,8 +9,8 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      CC: clang-19
-      CXX: clang++-19
+      CC: clang
+      CXX: clang++
 
     steps:
     - uses: actions/checkout@v4
@@ -18,7 +18,9 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build clang-19 gcc-14
+        sudo apt-get install -y ninja-build clang-19
+        sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 100
+        sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 100
         clang -v
         clang++ -v
 
