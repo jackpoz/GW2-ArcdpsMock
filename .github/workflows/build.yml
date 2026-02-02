@@ -18,7 +18,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build clang-19
+        sudo apt-get install -y ninja-build clang-19 gcc-14
 
     - name: Setup vcpkg
       run: |
