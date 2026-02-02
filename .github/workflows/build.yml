@@ -18,11 +18,9 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y ninja-build clang-19 clang-tools-19
+        sudo apt-get install -y ninja-build clang-19
         sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-19 200
         sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-19 200
-        sudo update-alternatives --config clang
-        sudo update-alternatives --config clang++
         clang -v
         clang++ -v
 
