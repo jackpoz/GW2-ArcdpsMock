@@ -13,7 +13,6 @@ find_package(nlohmann_json CONFIG REQUIRED)
 find_package(ArcdpsExtension CONFIG REQUIRED)
 
 target_link_libraries(GW2-ArcdpsMock-DemoPlugin PRIVATE
-  GW2-ArcdpsMock-Common
   ArcdpsExtension::ArcdpsExtension)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)

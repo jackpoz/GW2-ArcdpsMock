@@ -1,9 +1,10 @@
 #include "LibrariesManager.h"
-#include <imgui/imgui.h>
 #include <cstdlib>
 
 LibrariesManager::LibrariesManager()
 {
+    imguiContext = ImGui::CreateContext();
+    ImGui::SetCurrentContext(imguiContext);
 }
 
 LibrariesManager::~LibrariesManager()
