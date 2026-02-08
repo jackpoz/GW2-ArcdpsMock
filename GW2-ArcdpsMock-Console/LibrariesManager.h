@@ -1,7 +1,6 @@
 #pragma once
-#include "SharedTypes.h"
 #include "Library.h"
-
+#include <CrossplatformMocks/Module.h>
 #include <vector>
 
 class LibrariesManager

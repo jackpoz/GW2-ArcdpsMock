@@ -1,6 +1,6 @@
 #pragma once
-#include "SharedTypes.h"
-#include "arcdps_structs.h"
+#include <CrossplatformMocks/Module.h>
+#include <ArcdpsExtension/arcdps_structs.h>
 
 struct Library
 {

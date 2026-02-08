@@ -1,5 +1,5 @@
 #include "LibrariesManager.h"
-#include "arcdps_structs.h"
+#include <imgui/imgui.h>
 #include <cstdlib>
 
 LibrariesManager::LibrariesManager()

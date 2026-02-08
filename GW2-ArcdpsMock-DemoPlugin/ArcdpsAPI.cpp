@@ -1,21 +1,22 @@
-#include "arcdps_structs.h"
 #include "Dependencies.h"
-#include "SharedTypes.h"
+#include <ArcdpsExtension/arcdps_structs.h>
+#include <CrossplatformMocks/Macro.h>
+#include <imgui/imgui.h>
 #include <cstdint>
 #include <cstring>
 #include <iostream>
 
 arcdps_exports arc_exports;
 
-EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion);
-EXPORT void* get_release_addr();
+CROSSPLATFORM_MOCKS_EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion);
+CROSSPLATFORM_MOCKS_EXPORT void* get_release_addr();
 arcdps_exports* mod_init();
 void mod_release();
 void mod_options();
 void mod_imgui(uint32_t not_charsel_or_loading, uint32_t hide_if_combat_or_ooc);
 void mod_combat(cbtevent* ev, ag* src, ag* dst, const char* skillname, uint64_t id, uint64_t revision);
 
-EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion)
+CROSSPLATFORM_MOCKS_EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dptr, LibraryHandle arcdll, void* mallocfn, void* freefn, uint32_t d3dversion)
 {
 	/*
 	ImGui::SetCurrentContext((ImGuiContext*)imguictx);
@@ -24,7 +25,7 @@ EXPORT void* get_init_addr(char* arcversion, ImGuiContext* imguictx, void* id3dp
 	return reinterpret_cast<void*>(mod_init);
 }
 
-EXPORT void* get_release_addr()
+CROSSPLATFORM_MOCKS_EXPORT void* get_release_addr()
 {
 	return reinterpret_cast<void*>(mod_release);
 }

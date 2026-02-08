@@ -1,13 +1,15 @@
 #include <cstdint>
-#include "arcdps_structs.h"
+#include <ArcdpsExtension/arcdps_structs.h>
+#include <CrossplatformMocks/Macro.h>
+#include <imgui/imgui.h>
 
-EXPORT const wchar_t* e0();
-EXPORT void e3(const char* string);
-EXPORT void e5(ImVec4** colors);
-EXPORT uint64_t e6();
-EXPORT uint64_t e7();
-EXPORT void e8(const char* string);
-EXPORT void e9(cbtevent* event, uint32_t signature);
+CROSSPLATFORM_MOCKS_EXPORT const wchar_t* e0();
+CROSSPLATFORM_MOCKS_EXPORT void e3(const char* string);
+CROSSPLATFORM_MOCKS_EXPORT void e5(ImVec4** colors);
+CROSSPLATFORM_MOCKS_EXPORT uint64_t e6();
+CROSSPLATFORM_MOCKS_EXPORT uint64_t e7();
+CROSSPLATFORM_MOCKS_EXPORT void e8(const char* string);
+CROSSPLATFORM_MOCKS_EXPORT void e9(cbtevent* event, uint32_t signature);
 
 const wchar_t* e0()
 {
