@@ -4,12 +4,11 @@
 LibrariesManager::LibrariesManager()
 {
     imguiContext = ImGui::CreateContext();
-    ImGui::SetCurrentContext(imguiContext);
+    SetupMockImGui();
 }
 
 LibrariesManager::~LibrariesManager()
 {
-    UnloadLibraries();
 }
 
 void LibrariesManager::LoadLibrary(const char* path)
@@ -48,8 +47,32 @@ void LibrariesManager::InitLibraries()
     }
 }
 
+void LibrariesManager::SetupMockImGui()
+{
+    ImGuiIO& io = ImGui::GetIO();
+    io.DisplaySize = ImVec2(100, 100);
+    io.Fonts->AddFontDefault();
+    io.Fonts->Build();
+}
+
+void LibrariesManager::UIUpdate()
+{
+    ImGui::NewFrame();
+    for (Library& library : libraries)
+    {
+        if (library.Exports->imgui != nullptr)
+        {
+            library.Exports->imgui(true, false);
+        }
+    }
+    ImGui::EndFrame();
+    ImGui::Render();
+}
+
 void LibrariesManager::UnloadLibraries()
 {
+    ImGui::DestroyContext();
+
     for (Library library : libraries)
     {
         auto release = library.GetRelease();

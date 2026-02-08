@@ -12,10 +12,12 @@ public:
 
     void LoadLibrary(const char* path);
     void InitLibraries();
+    void UIUpdate();
     void UnloadLibraries();
 private:
     template <typename T>
     T GetFunctionAddress(LibraryHandle handle, const char* functionName);
+    void SetupMockImGui();
 
     ImGuiContext* imguiContext;
     std::vector<Library> libraries;
