@@ -35,9 +35,16 @@ void LibrariesManager::LoadLibrary(const char* path)
 
         void* swapChain = nullptr;
         library.Init = library.GetInit("GW2-ArcdpsMock", ImGui::GetCurrentContext(), (void*)swapChain, selfHandle, malloc, free, dxMode);
-        library.Exports = library.Init();
 
         libraries.push_back(library);
+    }
+}
+
+void LibrariesManager::InitLibraries()
+{
+    for (Library& library : libraries)
+    {
+        library.Exports = library.Init();
     }
 }
 

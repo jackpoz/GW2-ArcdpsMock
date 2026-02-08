@@ -11,6 +11,7 @@ public:
     ~LibrariesManager();
 
     void LoadLibrary(const char* path);
+    void InitLibraries();
     void UnloadLibraries();
 private:
     template <typename T>
