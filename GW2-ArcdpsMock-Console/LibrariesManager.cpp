@@ -69,6 +69,16 @@ void LibrariesManager::UIUpdate()
     ImGui::Render();
 }
 
+void LibrariesManager::LoadCombatLog(const char* logPath)
+{
+    // ToDo: implement this
+}
+
+void LibrariesManager::RunCombatLog()
+{
+    // ToDo: implement this
+}
+
 void LibrariesManager::UnloadLibraries()
 {
     ImGui::DestroyContext();

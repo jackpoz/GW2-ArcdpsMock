@@ -37,9 +37,56 @@ int main(int argc, char* argv[])
     // 3. Start a loop that will:
     // 3.a. Ask for input: exit, repeat the previous log (if any was ran) or load and run the specified combat log
     // 3.b. Execute the requested action
-    
+    std::string logPath = "";
+    std::string input = "";
+    bool exitRequested = false;
+
+    while (!exitRequested)
+    {
+        std::cout << "\n=== Menu ===" << std::endl;
+        std::cout << "1. Exit" << std::endl;
+        std::cout << "2. Load and run a combat log" << std::endl;
+        if (!logPath.empty())
+        {
+            std::cout << "3. Repeat previous log (" << logPath << ")" << std::endl;
+        }
+
+        std::cout << "Enter your choice: ";
+
+        std::getline(std::cin, input);
+
+        if (input == "1")
+        {
+            exitRequested = true;
+        }
+        else if (input == "2")
+        {
+            std::cout << "Enter combat log path: ";
+            std::getline(std::cin, logPath);
+            
+            if (!logPath.empty())
+            {
+                std::cout << "Loading combat log: " << logPath << std::endl;
+                librariesManager.LoadCombatLog(logPath.c_str());
+                librariesManager.RunCombatLog();
+            }
+            else
+            {
+                std::cout << "Invalid path provided." << std::endl;
+            }
+        }
+        else if (input == "3" && !logPath.empty())
+        {
+            std::cout << "Running previous log: " << logPath << std::endl;
+            librariesManager.RunCombatLog();
+        }
+        else
+        {
+            std::cout << "Invalid choice. Please try again." << std::endl;
+        }
+    }
+
     // 4. Set running = false to exit the UI thread
-    std::this_thread::sleep_for(std::chrono::seconds(10));
     running = false;
     uiThread.join();
 

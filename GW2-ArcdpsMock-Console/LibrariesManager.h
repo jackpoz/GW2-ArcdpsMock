@@ -13,6 +13,8 @@ public:
     void LoadLibrary(const char* path);
     void InitLibraries();
     void UIUpdate();
+    void LoadCombatLog(const char* logPath);
+    void RunCombatLog();
     void UnloadLibraries();
 private:
     template <typename T>
