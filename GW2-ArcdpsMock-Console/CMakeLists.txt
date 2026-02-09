@@ -15,6 +15,8 @@ find_package(ArcdpsExtension CONFIG REQUIRED)
 target_link_libraries(GW2-ArcdpsMock-Console PRIVATE
   ArcdpsExtension::ArcdpsExtension)
 
+set_property(TARGET GW2-ArcdpsMock-Console PROPERTY ENABLE_EXPORTS ON)
+
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET GW2-ArcdpsMock-Console PROPERTY CXX_STANDARD 23)
 endif()
