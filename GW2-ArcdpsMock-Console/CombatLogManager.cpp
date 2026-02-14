@@ -1,5 +1,6 @@
 #include "CombatLogManager.h"
 #include <cassert>
+#include <cstring>
 #include <memory>
 #include <thread>
 
