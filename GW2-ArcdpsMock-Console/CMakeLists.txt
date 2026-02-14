@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_executable (GW2-ArcdpsMock-Console "main.cpp"  "LibrariesManager.cpp" "Library.h" "ArcdpsExports.cpp")
+add_executable (GW2-ArcdpsMock-Console "main.cpp"  "LibrariesManager.cpp" "Library.h" "ArcdpsExports.cpp" "CombatLogManager.h" "CombatLogManager.cpp" "Xevtc.h")
 
 find_package(magic_enum CONFIG REQUIRED)
 find_package(imgui CONFIG REQUIRED)

@@ -1,7 +1,7 @@
 #include "LibrariesManager.h"
 #include <cstdlib>
 
-LibrariesManager::LibrariesManager()
+LibrariesManager::LibrariesManager() : combatLogManager()
 {
     imguiContext = ImGui::CreateContext();
     SetupMockImGui();
@@ -69,30 +69,48 @@ void LibrariesManager::UIUpdate()
     ImGui::Render();
 }
 
-void LibrariesManager::LoadCombatLog(const char* logPath)
+bool LibrariesManager::LoadCombatLog(const char* logPath)
 {
-    // ToDo: implement this
+    return combatLogManager.LoadLog(logPath) == 0;
 }
 
-void LibrariesManager::RunCombatLog()
+void LibrariesManager::RunCombatLog(uint32_t threads)
 {
-    // ToDo: implement this
+    if (threads == 0)
+    {
+        threads = 1;
+    }
+
+    std::vector<arcdps_exports> exports;
+    for (const auto& library : libraries)
+    {
+        exports.push_back(*library.Exports);
+    }
+
+    combatLogManager.RunCombatLog(threads, exports);
 }
 
 void LibrariesManager::UnloadLibraries()
 {
-    ImGui::DestroyContext();
-
-    for (Library library : libraries)
+    for (const auto& library : libraries)
     {
         auto release = library.GetRelease();
         release();
+    }
 
+    // ToDo: re-enable this
+    //ImGui::DestroyContext();
+
+    for (const auto& library : libraries)
+    {
+        // ToDo: re-enable this
+        /*
 #ifdef _WIN32
         ::FreeLibrary(library.Handle);
 #else
         dlclose(library.Handle);
 #endif
+        */
     }
 
     libraries.clear();

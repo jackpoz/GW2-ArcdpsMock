@@ -1,5 +1,6 @@
 #pragma once
 #include "Library.h"
+#include "CombatLogManager.h"
 #include <CrossplatformMocks/Module.h>
 #include <imgui/imgui.h>
 #include <vector>
@@ -13,8 +14,8 @@ public:
     void LoadLibrary(const char* path);
     void InitLibraries();
     void UIUpdate();
-    void LoadCombatLog(const char* logPath);
-    void RunCombatLog();
+    bool LoadCombatLog(const char* logPath);
+    void RunCombatLog(uint32_t threads = 0);
     void UnloadLibraries();
 private:
     template <typename T>
@@ -23,4 +24,5 @@ private:
 
     ImGuiContext* imguiContext;
     std::vector<Library> libraries;
+    CombatLogManager combatLogManager;
 };

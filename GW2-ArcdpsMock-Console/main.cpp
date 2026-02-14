@@ -67,8 +67,16 @@ int main(int argc, char* argv[])
             if (!logPath.empty())
             {
                 std::cout << "Loading combat log: " << logPath << std::endl;
-                librariesManager.LoadCombatLog(logPath.c_str());
-                librariesManager.RunCombatLog();
+                if (librariesManager.LoadCombatLog(logPath.c_str()))
+                {
+                    std::cout << "Running combat log" << std::endl;
+                    librariesManager.RunCombatLog();
+                    std::cout << "Run completed" << std::endl;
+                }
+                else
+                {
+                    std::cout << "An error occurred loading the combat log";
+                }
             }
             else
             {
