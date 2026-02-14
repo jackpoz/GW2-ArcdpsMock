@@ -68,9 +68,17 @@
         {
             "name": "linux-x64-release",
             "displayName": "Linux x64 Release",
-            "inherits": "linux-x64-debug",
+            "inherits": "linux-base",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+            }
+        },
+        {
+            "name": "linux-x64-asan",
+            "displayName": "Linux x64 ASan",
+            "inherits": "linux-x64-release",
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
             }
         }
     ]
