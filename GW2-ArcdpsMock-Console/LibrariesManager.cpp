@@ -104,13 +104,13 @@ void LibrariesManager::UnloadLibraries()
     for (const auto& library : libraries)
     {
         // ToDo: re-enable this
-        /*
 #ifdef _WIN32
         ::FreeLibrary(library.Handle);
 #else
+#ifndef _SAN // Don't unload if using ASan or TSan
         dlclose(library.Handle);
 #endif
-        */
+#endif
     }
 
     libraries.clear();
