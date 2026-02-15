@@ -80,6 +80,14 @@
             "cacheVariables": {
                 "VCPKG_TARGET_TRIPLET": "x64-linux-asan"
             }
+        },
+        {
+            "name": "linux-x64-tsan",
+            "displayName": "Linux x64 TSan",
+            "inherits": "linux-x64-release",
+            "cacheVariables": {
+                "VCPKG_TARGET_TRIPLET": "x64-linux-tsan"
+            }
         }
     ]
 }
