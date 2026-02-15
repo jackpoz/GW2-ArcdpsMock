@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
                 if (librariesManager.LoadCombatLog(logPath.c_str()))
                 {
                     std::cout << "Running combat log" << std::endl;
-                    librariesManager.RunCombatLog();
+                    librariesManager.RunCombatLog(2);
                     std::cout << "Run completed" << std::endl;
                 }
                 else
