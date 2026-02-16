@@ -19,6 +19,8 @@ if(ASAN AND TSAN)
 endif()
 
 if(ASAN OR TSAN)
+  add_compile_definitions(_SAN)
+  
   if(NOT CMAKE_CXX_COMPILER_ID MATCHES "Clang")
     message(FATAL_ERROR "Sanitizers require Clang/clang-cl")
   endif()

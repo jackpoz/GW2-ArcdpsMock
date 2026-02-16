@@ -92,15 +92,44 @@ void LibrariesManager::RunCombatLog(uint32_t threads)
 
 void LibrariesManager::UnloadLibraries()
 {
+    switch (std::rand() % 3)
+    {
+    case 0:
+        CallDestroyImGuiContext();
+        CallModRelease();
+        CallUnloadLibraries();
+        break;
+    case 1:
+        CallModRelease();
+        CallDestroyImGuiContext();
+        CallUnloadLibraries();
+        break;
+    case 2:
+        CallModRelease();
+        CallUnloadLibraries();
+        CallDestroyImGuiContext();
+        break;
+    }
+
+    libraries.clear();
+}
+
+void LibrariesManager::CallModRelease()
+{
     for (const auto& library : libraries)
     {
         auto release = library.GetRelease();
         release();
     }
+}
 
-    // ToDo: re-enable this
-    //ImGui::DestroyContext();
+void LibrariesManager::CallDestroyImGuiContext()
+{
+    ImGui::DestroyContext();
+}
 
+void LibrariesManager::CallUnloadLibraries()
+{
     for (const auto& library : libraries)
     {
         // ToDo: re-enable this
@@ -112,8 +141,6 @@ void LibrariesManager::UnloadLibraries()
 #endif
 #endif
     }
-
-    libraries.clear();
 }
 
 template<typename T>

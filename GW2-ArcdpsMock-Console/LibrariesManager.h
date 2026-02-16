@@ -21,6 +21,9 @@ private:
     template <typename T>
     T GetFunctionAddress(LibraryHandle handle, const char* functionName);
     void SetupMockImGui();
+    void CallModRelease();
+    void CallDestroyImGuiContext();
+    void CallUnloadLibraries();
 
     ImGuiContext* imguiContext;
     std::vector<Library> libraries;
